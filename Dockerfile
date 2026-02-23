@@ -1,10 +1,10 @@
-FROM alpine:3.21
+FROM alpine:3.23.3
 
 LABEL description="PostfixAdmin is a web based interface used to manage mailboxes"
 
-ARG VERSION=3.3.14
+ARG VERSION=3.3.16
 ARG PHP_VERSION=84
-ARG SHA256_HASH="bd48687431472dc1753513bdf38a498f6b913d3c04a8e4d6d2415d190760e5a3"
+ARG SHA256_HASH="586934d5309f0bdafe5e476d1c6a5cc8f439128eaf87e0d0c9f3cc493e886519"
 
 RUN set -eux; \
     apk update && apk upgrade; \
@@ -31,8 +31,7 @@ RUN set -eux; \
     \
     mkdir /postfixadmin; \
     tar -xzf ${PFA_TARBALL} --strip-components=1 -C /postfixadmin; \
-    rm -f ${PFA_TARBALL}; \
-    chmod 644 /etc/ssl/dovecot/server.key
+    rm -f ${PFA_TARBALL}
 
 COPY bin /usr/local/bin
 RUN chmod +x /usr/local/bin/*
