@@ -9,23 +9,34 @@ ARG SHA256_HASH="586934d5309f0bdafe5e476d1c6a5cc8f439128eaf87e0d0c9f3cc493e88651
 RUN set -eux; \
     apk update && apk upgrade; \
     apk add --no-cache \
+        bash \
         su-exec \
         dovecot \
         tini \
-        php${PHP_VERSION} \
-        php${PHP_VERSION}-fpm \
-        php${PHP_VERSION}-imap \
-        php${PHP_VERSION}-mbstring \
-        php${PHP_VERSION}-mysqli \
-        php${PHP_VERSION}-pdo \
-        php${PHP_VERSION}-pdo_mysql \
-        php${PHP_VERSION}-pdo_pgsql \
-        php${PHP_VERSION}-pgsql \
-        php${PHP_VERSION}-phar \
-        php${PHP_VERSION}-session \
+        \
+        php \
+        php-curl \
+        php-dom \
+        php-fpm \
+        php-iconv \
+        php-imap \
+        php-intl \
+        php-mbstring \
+        php-mysqli \
+        php-pdo \
+        php-pdo_mysql \
+        php-pdo_pgsql \
+        php-pgsql \
+        php-phar \
+        php-session \
+        php-simplexml \
+        php-sqlite3 \
+        php-tokenizer \
+        php-xml \
+        php-xmlwriter \
     ; \
     \
-    PFA_TARBALL="postfixadmin-${VERSION}.tar.gz"; \
+    PFA_TARBALL="v${VERSION}.tar.gz"; \
     wget -q https://github.com/postfixadmin/postfixadmin/archive/${PFA_TARBALL}; \
     echo "${SHA256_HASH} *${PFA_TARBALL}" | sha256sum -c; \
     \
