@@ -4,7 +4,7 @@ LABEL description="PostfixAdmin is a web based interface used to manage mailboxe
 
 ARG VERSION=3.3.16
 ARG PHP_VERSION=84
-ARG SHA256_HASH="586934d5309f0bdafe5e476d1c6a5cc8f439128eaf87e0d0c9f3cc493e886519"
+ARG SHA256_HASH="93df38f59b3a35748ec4e3528392422f688362fdea507569ec3b9d8ebb07a3fd"
 
 RUN set -eux; \
     apk update && apk upgrade; \
